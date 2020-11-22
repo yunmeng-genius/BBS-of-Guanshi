@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(218, 165, 32, 0.336);
+}
+
+.large-hench {
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+}
+
+.large-hench>div {
+    float: left;
+}
+
+.large-title {
+    font-size: 34px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+    margin-left: 100px;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.user-name {
+    font-size: 24px;
+    color: cornflowerblue;
+    margin-right: 10px;
+}
+
+.head-user-name {
+    margin-left: 800px;
+    margin-top: 8px;
+}
+
+.quit {
+    margin-top: 23px;
+}
+
+.quit {
+    font-size: 10px;
+    color: crimson;
+    text-decoration: none;
+}
+
+.blog-area {
+    margin-left: 270px;
+    margin-top: 150px;
+    width: 1000px;
+    height: auto;
+    background-color: darkgray;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.blog-user-info {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.blog-time {
+    font-size: 8px;
+    color: rgba(41, 136, 46, 0.623);
+}
+
+.blog-content{
+    margin-left: 80px;
+    margin-top: 20px;
+}
+.blog-words {
+    margin-bottom: 9px;
+    font-weight: bold;
+}
+
+.blog-reaction {
+    margin-top: 30px;
+    margin-left: 80px;
+    margin-bottom: 50px;
+}
+
+.comment-words {
+    height: 30px;
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-right: 20px;
+    width: 600px;
+    border: 1px solid #A9A9A9;
+    outline: none;
+    text-indent: 5px;
+}

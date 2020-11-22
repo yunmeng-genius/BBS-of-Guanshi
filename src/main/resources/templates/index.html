@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="./js/postComment.js"></script>
+</head>
+
+<body>
+<div class="large-hench">
+    <div class="large-title"></div>
+    <div class="user-name head-user-name">哈哈哈</div>
+    <div class="quit">
+        <a href="">退出</a>
+    </div>
+</div>
+<div class="blog-area" th:each="log:${logs}">
+    <div class="blog-user-info">
+        <span class="log-id" th:text="${log.getId()}" style="display: none"></span>
+        <span class="user-name" th:utext="${log.getWriter()}">哈哈哈</span>
+        <span class="blog-time">2020-09-10 22:59</span>
+    </div>
+    <div class="blog-content">
+        <div class="blog-words" th:utext="${log.getText()}">这是个看脸的时代，不仅仅停留在美与丑上。岁月给你的经历会沉淀在你的容貌里，烙印在你身上。</div>
+        <img src="../static/images/image1.jpg" alt="无图" style="width: 50%; height: 50%;">
+    </div>
+    <div class="blog-reaction">
+        <div class="praise">
+            <img src="../static/images/praise.png" alt="暂时没图" class="praise-img" style="width: 20px;height: 20px;">
+            <span class="praise-user" th:each="likegiver:${log.getLikeGiver()}">
+                <span th:text="${likegiver}"></span>
+            </span>
+        </div>
+        <div class="comment" th:each="comment:${log.getComments()}">
+            <span class="comment-user" th:text="${comment.getWriter()}">黑衣人</span>：
+            <span class="comment-content" th:text="${comment.getText()}">
+            </span>
+        </div>
+<!--        <div class="new-comment" style="display: none">-->
+<!--            <span class="new-comment-user"></span>-->
+<!--            <span class="new-comment-content"></span>-->
+<!--        </div>-->
+        <div class="post-comment">
+            <form  class="comment-form">
+                <label>
+                    <input type="text" placeholder="评论" class="comment-words">
+                    <input type="submit" placeholder="发表">
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
