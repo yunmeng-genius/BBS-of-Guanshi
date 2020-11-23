@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgba(218, 165, 32, 0.336);
 }
 
 .large-hench {
@@ -27,7 +26,8 @@ body {
 
 .user-name {
     font-size: 24px;
-    color: cornflowerblue;
+    font-family: Consolas, serif;
+    font-weight: bold;
     margin-right: 10px;
 }
 
@@ -47,11 +47,12 @@ body {
 }
 
 .blog-area {
-    margin-left: 270px;
+    margin-left: 260px;
     margin-top: 150px;
     width: 1000px;
     height: auto;
-    background-color: darkgray;
+    opacity: 80%;
+    background-color: #FFFFFF;
     border-radius: 50px;
     overflow: hidden;
 }
@@ -67,7 +68,7 @@ body {
 }
 
 .blog-content{
-    margin-left: 80px;
+    margin-left: 165px;
     margin-top: 20px;
 }
 .blog-words {
@@ -77,8 +78,11 @@ body {
 
 .blog-reaction {
     margin-top: 30px;
-    margin-left: 80px;
     margin-bottom: 50px;
+}
+
+.praise {
+    margin-left: 165px;
 }
 
 .comment-words {
@@ -89,5 +93,35 @@ body {
     width: 600px;
     border: 1px solid #A9A9A9;
     outline: none;
-    text-indent: 5px;
+}
+
+.post-comment {
+    text-align: center;
+}
+
+.comment {
+    margin-left: 165px;
+    font-size: 14px;
+}
+
+.praise-action {
+    display: inline-block;
+    position: relative;
+    top: -2.5px;
+    margin-right: 10px;
+}
+
+.praise-action:hover {
+    opacity: 50%;
+}
+
+.blog-button {
+    font-weight: bold;
+}
+
+.input-group-addon {
+    position: relative;
+    left: 600px;
+    top: -70px;
+    height: 70px;
 }

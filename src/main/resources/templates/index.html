@@ -5,19 +5,47 @@
     <meta charset="utf-8"/>
     <title></title>
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
     <script src="./js/postComment.js"></script>
+    <script src="./js/praise.js"></script>
+    <style>
+        body {
+            background-image: url("./images/preview.jpg");
+            background-attachment: fixed;
+            background-size: contain;
+        }
+    </style>
 </head>
 
 <body>
-<div class="large-hench">
-    <div class="large-title"></div>
-    <div class="user-name head-user-name">哈哈哈</div>
-    <div class="quit">
-        <a href="">退出</a>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid" style="vertical-align: center">
+        <div class="navbar-header">
+            <span class="navbar-brand" style="margin-left: 130px;font-size: 28px"><a th:href="@{/index}"
+                                                                                     style="text-decoration: none">管实BBS</a></span>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/personalIndex}" style="text-decoration: none"><span class="glyphicon glyphicon-user"
+                                                                                   th:text="${session.username}"
+                                                                                   style="margin-right: 50px;margin-left: 10px"></span></a>
+            </li>
+            <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+        </ul>
+    </div>
+</nav>
+<div style="padding: 100px 100px 10px; width: 800px;margin-left: 338px">
+    <div class="input-group">
+        <form th:action="@{/postLog}" class="log-content-form" id="log-form" th:method="post">
+<textarea class="form-control post-log-content"
+          style="font-size: 20px;resize:none;overflow:auto;width: 600px" name="log"></textarea>
+            <span class="input-group-addon"><a style="text-decoration: none;font-size: 20px"
+                                               class="post-log" onclick="document.getElementById('log-form').submit();">发布</a></span></form>
     </div>
 </div>
-<div class="blog-area" th:each="log:${logs}">
+<div class="blog-area" th:each="log:${logs}" th:if="${log.getText()!=null}">
     <div class="blog-user-info">
         <span class="log-id" th:text="${log.getId()}" style="display: none"></span>
         <span class="user-name" th:utext="${log.getWriter()}">哈哈哈</span>
@@ -25,29 +53,27 @@
     </div>
     <div class="blog-content">
         <div class="blog-words" th:utext="${log.getText()}">这是个看脸的时代，不仅仅停留在美与丑上。岁月给你的经历会沉淀在你的容貌里，烙印在你身上。</div>
-        <img src="../static/images/image1.jpg" alt="无图" style="width: 50%; height: 50%;">
+        <img src="./images/image1.jpg" alt="无图" style="width: 50%; height: 50%;">
     </div>
     <div class="blog-reaction">
         <div class="praise">
-            <img src="../static/images/praise.png" alt="暂时没图" class="praise-img" style="width: 20px;height: 20px;">
+            <div class="praise-action" th:praise-button="${log.getId()}"><img src="./images/praise.png" alt="暂时没图"
+                                                                              class="praise-img"
+                                                                              style="width: 20px;height: 20px;"></div>
             <span class="praise-user" th:each="likegiver:${log.getLikeGiver()}">
-                <span th:text="${likegiver}"></span>
-            </span>
+                <span th:text="${likegiver}" class="old-praise-user"></span>
+            </span><span> 觉得很赞</span>
         </div>
         <div class="comment" th:each="comment:${log.getComments()}">
             <span class="comment-user" th:text="${comment.getWriter()}">黑衣人</span>：
             <span class="comment-content" th:text="${comment.getText()}">
             </span>
         </div>
-<!--        <div class="new-comment" style="display: none">-->
-<!--            <span class="new-comment-user"></span>-->
-<!--            <span class="new-comment-content"></span>-->
-<!--        </div>-->
         <div class="post-comment">
-            <form  class="comment-form">
+            <form class="comment-form" onsubmit="false" action="javascript:;">
                 <label>
                     <input type="text" placeholder="评论" class="comment-words">
-                    <input type="submit" placeholder="发表">
+                    <button type="button" th:blog-button="${log.getId()}" class="blog-button">发表</button>
                 </label>
             </form>
         </div>

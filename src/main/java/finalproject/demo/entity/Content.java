@@ -16,7 +16,6 @@ public class Content {
 		this.text = text;
 		this.time=time;
 	}
-	Content(){}
 	
 	public int getId() {
 		return id;

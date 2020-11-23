@@ -1,13 +1,10 @@
 package finalproject.demo.controller;
 
 
-import finalproject.demo.entity.UserInfo;
 import finalproject.demo.entity.WebPrint;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import sun.plugin2.os.windows.FLASHWINFO;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +29,7 @@ public class LoginController {
         if(flag){
             request.getSession().setAttribute("username",username);
             return "redirect:/index";
-        };
+        }
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         out.print("<script type='text/javascript'>alert('用户名或密码错误!');</script>");
@@ -43,7 +40,7 @@ public class LoginController {
 
     @RequestMapping("/register")
     public String register(String username, String password, HttpServletResponse response) throws IOException {
-        UserInfo userInfo = new UserInfo(username, password);
+
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         out.print("<script type='text/javascript'>alert('注册成功!');</script>");

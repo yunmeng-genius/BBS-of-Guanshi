@@ -1,35 +1,30 @@
 $(document).ready(function () {
-    let commentUser = "";
-    let commentContent = "";
-    $(".comment-form").submit(function () {
-        let str1 = $(".log-id").text();
-        let str2 = $(".comment-words").val();
+    $(".blog-button").click(function () {
+        let str1 = $(this).attr("blog-button");
+        let str2 = $(this).prev(".comment-words").val();
+        let str3 = $(".glyphicon-user").text();
         $.ajax({
             url: 'http://localhost:8088/postComment',
             type: 'post',
+            contentType: "application/json",
+            async: false,
             data: JSON.stringify({
                 logId: str1,
                 comment: str2
             }),
-            dataType: JSON,
-            contentType:"application/json",
-            success: function (data) {
-                data=JSON.stringify(data);
-                if (data.hasOwnProperty("username")) {
-                    // (".new-comment-user").val(data["username"]);
-                    commentUser = data["username"];
-                } else if (data.hasOwnProperty("comment")) {
-                    // $(".new-comment-content").val(data["comment"]);
-                    commentContent = data["comment"];
-                }
-                $(".post-comment").before(function () {
-                    return "<div class='new-comment'><span>" + commentUser + "</span><span>" + commentContent + "</span></div>"
-                })
+            success: function () {
+                $(".post-comment").before(
+                    "<div class='comment'><span class=\"comment-user\">" + str3 + "：</span><span class=\"comment-content\">" + str2 + "</span></div>"
+                );
+                $(".comment-words").val("");
             },
             error: function () {
-                alert("发生了一点小故障哦，请稍等");
+                $(".post-comment").before(
+                    "<div class='comment'><span class=\"comment-user\">" + str3 + "：</span><span class=\"comment-content\">" + str2 + "</span></div>"
+                );
+                $(".comment-words").val("");
             }
+
         })
     })
-
 })
