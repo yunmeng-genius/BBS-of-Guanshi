@@ -10,16 +10,14 @@
 <body>
 <img src="./images/logo.jpg" alt="hahaha">
 <div class="large-hench">
-    <div class="title">翻墙请求</div>
+    <div class="title">BBS入口</div>
     <form th:action="@{/ensure}" method="post" onsubmit="return LoginEnsure()">
         <label>
             <input type="text" placeholder="姓名" name="username" class="input-one username" autocomplete="off">
             <input type="password" placeholder="口令" name="password" class="input-one password">
-            <input type="submit" value="我要上墙！" class="submit-one">
+            <input type="submit" value="我要BB！" class="submit-one">
         </label>
     </form>
-    <!-- <div class="register"><span>换个密码？去</span><a th:href="@{/first}"
-                                                style="text-decoration: none;color: #34C163;">修改</a></div> -->
 </div>
 </body>
 </html>

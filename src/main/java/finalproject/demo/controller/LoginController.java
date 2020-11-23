@@ -43,7 +43,8 @@ public class LoginController {
 
 
     @RequestMapping("/changePwd")
-    public String register(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletResponse response,HttpServletRequest request) throws IOException {
+    public String register(@RequestParam("password") String password, HttpServletResponse response,HttpServletRequest request) throws IOException {
+        String username=(String) request.getSession().getAttribute("username");
         WebPrint.alterPassword(password,username);
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
