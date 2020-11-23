@@ -32,6 +32,7 @@
                                                                                    th:text="${session.username}"
                                                                                    style="margin-right: 50px;margin-left: 10px"></span></a>
             </li>
+            <li class="change-password"><a th:href="@{/pwd}">修改密码</a></li>
             <li><a th:href="@{/logout}"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -39,17 +40,18 @@
 <div style="padding: 100px 100px 10px; width: 800px;margin-left: 338px">
     <div class="input-group">
         <form th:action="@{/postLog}" class="log-content-form" id="log-form" th:method="post">
-<textarea class="form-control post-log-content"
+                    <textarea class="form-control post-log-content"
           style="font-size: 20px;resize:none;overflow:auto;width: 600px" name="log"></textarea>
             <span class="input-group-addon"><a style="text-decoration: none;font-size: 20px"
-                                               class="post-log" onclick="document.getElementById('log-form').submit();">发布</a></span></form>
+                                               class="post-log" onclick="document.getElementById('log-form').submit();">发布</a></span>
+        </form>
     </div>
 </div>
 <div class="blog-area" th:each="log:${logs}" th:if="${log.getText()!=null}">
     <div class="blog-user-info">
         <span class="log-id" th:text="${log.getId()}" style="display: none"></span>
         <span class="user-name" th:utext="${log.getWriter()}">哈哈哈</span>
-        <span class="blog-time">2020-09-10 22:59</span>
+        <span class="blog-time" th:utext="${log.getTime()}">2020-09-10 22:59</span>
     </div>
     <div class="blog-content">
         <div class="blog-words" th:utext="${log.getText()}">这是个看脸的时代，不仅仅停留在美与丑上。岁月给你的经历会沉淀在你的容貌里，烙印在你身上。</div>
@@ -70,7 +72,7 @@
             </span>
         </div>
         <div class="post-comment">
-            <form class="comment-form" onsubmit="false" action="javascript:;">
+            <form class="comment-form" onsubmit="false" action="javascript:">
                 <label>
                     <input type="text" placeholder="评论" class="comment-words">
                     <button type="button" th:blog-button="${log.getId()}" class="blog-button">发表</button>

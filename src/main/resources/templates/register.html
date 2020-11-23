@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>修改密码</title>
-    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="./css/register.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
-    <script type="text/javascript" src="../static/js/PwdEnsure.js"></script>
+    <script type="text/javascript" src="./js/PwdEnsure.js"></script>
 </head>
 <body>
 <div class="large-hench">
     <div class="title">修改密码</div>
-    <form th:action="@{/register}" method="post" class="form-data" onsubmit="
+    <form th:action="@{/changePwd}" method="post" class="form-data" onsubmit="
 			return registerEnsure()">
         <label>
             <input type="text" placeholder="账号" name="username" class="input-one username" autocomplete="off">

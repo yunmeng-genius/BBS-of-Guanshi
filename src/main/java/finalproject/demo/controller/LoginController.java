@@ -22,6 +22,10 @@ public class LoginController {
     }
 
 
+    @RequestMapping("/pwd")
+    public String pwd(){
+        return "register";
+    }
 
     @RequestMapping("/ensure")
     public String ensure(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletResponse response, HttpServletRequest request) throws IOException {
@@ -38,12 +42,13 @@ public class LoginController {
 
 
 
-    @RequestMapping("/register")
-    public String register(String username, String password, HttpServletResponse response) throws IOException {
-
+    @RequestMapping("/changePwd")
+    public String register(@RequestParam("username") String username, @RequestParam("password") String password, HttpServletResponse response,HttpServletRequest request) throws IOException {
+        WebPrint.alterPassword(password,username);
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
-        out.print("<script type='text/javascript'>alert('注册成功!');</script>");
+        out.print("<script type='text/javascript'>alert('修改成功!请重新登录');</script>");
+        request.getSession().getAttribute("username");
         return "login";
     }
 

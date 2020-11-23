@@ -10,7 +10,7 @@ body {
     display: inline-block;
 }
 
-.large-hench>div {
+.large-hench > div {
     float: left;
 }
 
@@ -67,10 +67,11 @@ body {
     color: rgba(41, 136, 46, 0.623);
 }
 
-.blog-content{
+.blog-content {
     margin-left: 165px;
     margin-top: 20px;
 }
+
 .blog-words {
     margin-bottom: 9px;
     font-weight: bold;
