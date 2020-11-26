@@ -55,7 +55,6 @@
     </div>
     <div class="blog-content">
         <div class="blog-words" th:utext="${log.getText()}">这是个看脸的时代，不仅仅停留在美与丑上。岁月给你的经历会沉淀在你的容貌里，烙印在你身上。</div>
-        <!--        <img src="./images/image1.jpg" alt="无图" style="width: 50%; height: 50%;">-->
     </div>
     <div class="blog-reaction">
         <div class="praise">
@@ -65,7 +64,7 @@
             <span class="praise-user" th:each="likegiver:${log.getLikeGiver()}">
                 <span th:text="${likegiver}" class="old-praise-user"></span>
             </span>
-<!--            <span class="praise-description">觉得很赞</span>-->
+            <span class=".help-praise"></span>
         </div>
         <div class="comment" th:each="comment:${log.getComments()}">
             <span class="comment-user" th:text="${comment.getWriter()}">黑衣人</span>：
