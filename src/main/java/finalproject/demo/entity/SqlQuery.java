@@ -32,7 +32,7 @@ public class SqlQuery{
 			e.printStackTrace();
 		}
        return null;
-	}//获取密码
+	}//从数据库中查询获取密码
 	
 	public String[] getMemberNames() {
 		ArrayList<String>temp=new ArrayList<>();
@@ -131,6 +131,7 @@ public class SqlQuery{
 		}  
 		return 0;
 	}
+
 
 	public int setlike(String likegiver, int logid) {
 		String sql1 = "INSERT INTO likes VALUES(?,?);"; 

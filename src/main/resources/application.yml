@@ -3,6 +3,8 @@ server:
   servlet:
     session:
       timeout: PT2H
+#  session过期时间设为两小时
   address: 0.0.0.0
+#  任何主机都能访问
 
 

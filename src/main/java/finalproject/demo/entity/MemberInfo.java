@@ -21,8 +21,10 @@ public class MemberInfo {
 		return flag;
 	}// 登录判断密码不空、成员存在、密码正确
 
+
 	public void alterPassWord(String newpassword) {
 		memberInfoQuery.setpassword(currentMember,newpassword);
 	}
+	//用于修改密码
 
 }

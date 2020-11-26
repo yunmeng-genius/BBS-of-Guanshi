@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Log extends Content implements Comparable<Log> {
-	public String[] likeGiver;// 点赞人
-	public LinkedList<Comment> comments;// 评论
+	public String[] likeGiver;           // log的点赞人
+	public LinkedList<Comment> comments; // log的评论
 
 	public Log(int id,String writer,String text,String time,String[] likeGiver,LinkedList<Comment> comments) {
 		super(id,writer,text,time);
